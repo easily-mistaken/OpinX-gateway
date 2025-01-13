@@ -29,7 +29,7 @@ func main() {
 		})
 	})
 
-	routers.Run() 
+	routers.Run(r) 
 
 	err = r.Run(":" + port)
 	if err != nil {

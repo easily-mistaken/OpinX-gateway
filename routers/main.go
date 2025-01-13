@@ -4,14 +4,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var router = gin.Default()
-
-func Run() {
-	getRoutes()
+func Run(r *gin.Engine) {
+	getRoutes(r)
 }
 
-func getRoutes() {
-	v1 := router.Group("/v1")
+func getRoutes(r *gin.Engine) {
+	v1 := r.Group("/v1")
 
 	appRoutes(v1)
 	balanceRoutes(v1)
