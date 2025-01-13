@@ -5,15 +5,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func balanceRoutes(route *gin.RouterGroup) {
-	router := route.Group("/balance")
+// Balances
+func balanceRouter(route *gin.RouterGroup) {
+	router := route.Group("/balances")
 
 
-	router.GET("/inr", controllers.ForwardRequest)
+	router.GET("/inr", func (c *gin.Context){
+		controllers.ForwardRequest(c, "balances/inr")
+	})
 
-	router.GET("/inr/:userId", controllers.ForwardRequest)
+	router.GET("/inr/:userId", func (c *gin.Context){
+		controllers.ForwardRequest(c, "/balances/inr/:uderId")
+	})
 
-	router.GET("/stock", controllers.ForwardRequest)
+	router.GET("/stock", func (c *gin.Context){
+		controllers.ForwardRequest(c, "/balances/stock")
+	})
 
-	router.GET("/stock/stockSymbol", controllers.ForwardRequest)
+	router.GET("/stock/stockSymbol", func (c *gin.Context){
+		controllers.ForwardRequest(c, "balances/stock/stockSymbol")
+	})
 }
