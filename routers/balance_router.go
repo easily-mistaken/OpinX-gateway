@@ -1,4 +1,4 @@
-package routes
+package routers
 
 import (
 	"github.com/easily-mistaken/OpinX-gateway/controllers"
@@ -9,11 +9,11 @@ func balanceRoutes(route *gin.RouterGroup) {
 	router := route.Group("/balance")
 
 
-	router.GET("/inr", controllers.forwardRequest)
+	router.GET("/inr", controllers.ForwardRequest)
 
-	router.GET("/inr/:userId", controllers.forwardRequest)
+	router.GET("/inr/:userId", controllers.ForwardRequest)
 
-	router.GET("/stock", controllers.forwardRequest)
+	router.GET("/stock", controllers.ForwardRequest)
 
-	router.GET("/stock/stockSymbol", controllers.forwardRequest)
+	router.GET("/stock/stockSymbol", controllers.ForwardRequest)
 }

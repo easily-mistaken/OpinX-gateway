@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/easily-mistaken/OpinX-gateway/routers"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -27,6 +28,8 @@ func main() {
 			"message": "Hello, World!",
 		})
 	})
+
+	r.Group("/api", routers.getRoutes)
 
 	err = r.Run(":" + port)
 	if err != nil {

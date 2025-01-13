@@ -1,4 +1,4 @@
-package routes
+package routers
 
 import (
 	"github.com/gin-gonic/gin"
@@ -8,7 +8,6 @@ var router = gin.Default()
 
 func Run() {
 	getRoutes()
-	router.Run(":5000")
 }
 
 func getRoutes() {
