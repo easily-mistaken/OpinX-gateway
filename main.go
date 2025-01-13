@@ -29,7 +29,7 @@ func main() {
 		})
 	})
 
-	r.Group("/api", routers.getRoutes)
+	routers.Run() 
 
 	err = r.Run(":" + port)
 	if err != nil {
