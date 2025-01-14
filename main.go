@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/easily-mistaken/OpinX-gateway/routers"
+	redisclient "github.com/easily-mistaken/OpinX-gateway/services"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -21,6 +22,8 @@ func main() {
 		port = "4000"
 	}
 
+	redisclient.ConnectToRedis()
+
 	r  :=gin.Default()
 
 	r.GET("/", func(c *gin.Context) {
@@ -34,7 +37,7 @@ func main() {
 	err = r.Run(":" + port)
 	if err != nil {
 		fmt.Println("Error running server")
-	}
+	}   
 
 	fmt.Println("Server running on port", port)
 }
